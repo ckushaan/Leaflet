@@ -1,35 +1,41 @@
 ---
-title: "Melbourne Map"
+title: "ANZ Bank Locations"
 author: "Kushan Sarathchandra"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+date: "Published on `r format(Sys.time(), '%c')`"
 output: ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-## R Markdown
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
+```r
+install.packages("leaflet")
 ```
 
-## Slide with Plot
 
-```{r pressure}
-plot(pressure)
+## Melbourne  `r format(Sys.time(), '%d %b %Y')`
+
+```{r, echo=FALSE}
+library(leaflet)
+anzIcon <- makeIcon(
+  iconUrl = "https://raw.githubusercontent.com/ckushaan/Leaflet/gh-pages/anzLogo.png",
+  iconWidth = 38, iconHeight = 38,
+  iconAnchorX = 31, iconAnchorY = 16
+)
+anzMelLatLong <- data.frame(
+  lat = c(-37.8140996, -37.8122457, -37.8161233, -37.8165550, -37.8103280, -37.8218039),
+  lng = c(144.9717892, 144.9654298, 144.9643191, 144.9618201, 144.9612290, 144.9454881))
+
+anzSites <- c(
+  "<a href='https://www.anz.com.au/personal/'>ANZ 55 Collins St</a>",
+  "<a href='https://www.anz.com.au/personal/'>ANZ 230 Swanston St</a>",
+  "<a href='https://www.anz.com.au/personal/'>ANZ 293 Collins St</a>",
+  "<a href='https://www.anz.com.au/personal/'>ANZ 388 Collins St</a>",
+  "<a href='https://www.anz.com.au/personal/'>ANZ 353 Elizabeth St</a>",
+  "<a href='https://www.anz.com.au/personal/'>ANZ 833 Collins St</a>"
+)
+anzMelLatLong %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = anzIcon, popup = anzSites)
 ```
-
