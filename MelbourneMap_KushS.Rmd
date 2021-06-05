@@ -5,14 +5,6 @@ date: "Published on `r format(Sys.time(), '%c')`"
 output: ioslides_presentation
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-```r
-install.packages("leaflet")
-```
-
-
 ## Melbourne  `r format(Sys.time(), '%d %b %Y')`
 
 ```{r, echo=FALSE}
