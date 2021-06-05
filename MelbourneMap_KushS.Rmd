@@ -24,7 +24,7 @@ anzSites <- c(
   "<a href='https://www.anz.com.au/personal/'>ANZ 293 Collins St</a>",
   "<a href='https://www.anz.com.au/personal/'>ANZ 388 Collins St</a>",
   "<a href='https://www.anz.com.au/personal/'>ANZ 353 Elizabeth St</a>",
-  "<a href='https://www.anz.com.au/personal/'>ANZ 833 Collins St</a>"
+  "<a href='https://www.anz.com.au/personal/'>ANZ Docklands</a>"
 )
 anzMelLatLong %>% 
   leaflet() %>%
